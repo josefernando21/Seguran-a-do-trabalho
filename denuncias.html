@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Denúncia - Canal Anônimo</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <span class="logo-icon">🛡️</span>
+                <span class="logo-text">Segurança do Trabalho</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="informacoes.html" class="nav-link">Informações</a></li>
+                <li><a href="denuncias.html" class="nav-link active">Fazer Denúncia</a></li>
+                <li><a href="recursos.html" class="nav-link">Recursos</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Fazer uma Denúncia Anônima</h1>
+            <p>Seu relato é confidencial e importa para nós</p>
+        </div>
+    </section>
+
+    <!-- Confidentiality Notice -->
+    <section class="confidentiality-notice">
+        <div class="container">
+            <div class="notice-content">
+                <h3>🔒 Garantia de Confidencialidade</h3>
+                <ul>
+                    <li>✓ Sua identidade é completamente protegida</li>
+                    <li>✓ Nenhum dado pessoal será armazenado ou compartilhado</li>
+                    <li>✓ Você pode fazer uma denúncia sem se identificar</li>
+                    <li>✓ Os dados são criptografados</li>
+                    <li>✓ Nenhuma rastreabilidade de IP ou localização será feita</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <form id="denunciaForm" class="denuncia-form">
+                <fieldset>
+                    <legend>Informações da Denúncia</legend>
+                    
+                    <!-- Tipo de Abuso -->
+                    <div class="form-group">
+                        <label for="tipoAbuso">Tipo de Abuso (Selecione um ou mais):</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipoAbuso" value="assedio-moral">
+                                Assédio Moral
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipoAbuso" value="discriminacao">
+                                Discriminação
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipoAbuso" value="abuso-poder">
+                                Abuso de Poder
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipoAbuso" value="pressao-excessiva">
+                                Pressão e Sobrecarga
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipoAbuso" value="assedio-sexual">
+                                Assédio Sexual
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipoAbuso" value="outro">
+                                Outro
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Quando começou -->
+                    <div class="form-group">
+                        <label for="quando">Quando os problemas começaram?</label>
+                        <input type="date" id="quando" name="quando" required>
+                    </div>
+
+                    <!-- Frequência -->
+                    <div class="form-group">
+                        <label for="frequencia">Com que frequência ocorrem os abusos?</label>
+                        <select id="frequencia" name="frequencia" required>
+                            <option value="">-- Selecione --</option>
+                            <option value="diario">Diariamente</option>
+                            <option value="semanal">Semanalmente</option>
+                            <option value="mensal">Mensalmente</option>
+                            <option value="ocasional">Ocasionalmente</option>
+                        </select>
+                    </div>
+
+                    <!-- Setor/Departamento -->
+                    <div class="form-group">
+                        <label for="setor">Setor/Departamento (Não identifique a empresa):</label>
+                        <input type="text" id="setor" name="setor" placeholder="Ex: RH, Vendas, TI" required>
+                    </div>
+
+                    <!-- Descrição da Denúncia -->
+                    <div class="form-group">
+                        <label for="descricao">Descreva o que aconteceu (Seja o mais detalhado possível):</label>
+                        <textarea id="descricao" name="descricao" rows="8" placeholder="Conte sua história aqui. Incluindo datas, pessoas envolvidas (sem nomes reais), o que foi dito ou feito..." required></textarea>
+                        <small>Dica: Quanto mais detalhes, melhor. Mas evite revelar sua identidade ou de colegas.</small>
+                    </div>
+
+                    <!-- Impactos -->
+                    <div class="form-group">
+                        <label for="impactos">Como isso afetou você? (Saúde mental, profissional, pessoal):</label>
+                        <textarea id="impactos" name="impactos" rows="6" placeholder="Descreva os impactos na sua vida, saúde e bem-estar..."></textarea>
+                    </div>
+
+                    <!-- Testemunhas -->
+                    <div class="form-group">
+                        <label for="testemunhas">Alguém mais presenciou estes abusos?</label>
+                        <select id="testemunhas" name="testemunhas" required>
+                            <option value="">-- Selecione --</option>
+                            <option value="sim-muitos">Sim, muitos colegas</option>
+                            <option value="sim-alguns">Sim, alguns colegas</option>
+                            <option value="talvez">Talvez (não tenho certeza)</option>
+                            <option value="nao">Não, era só comigo</option>
+                        </select>
+                    </div>
+
+                    <!-- Denúncia anterior -->
+                    <div class="form-group">
+                        <label for="denunciaAnterior">Você já denunciou isto internamente na empresa?</label>
+                        <select id="denunciaAnterior" name="denunciaAnterior" required>
+                            <option value="">-- Selecione --</option>
+                            <option value="sim-rh">Sim, para o RH</option>
+                            <option value="sim-supervisor">Sim, para supervisor/chefe</option>
+                            <option value="sim-outro">Sim, para outro setor</option>
+                            <option value="nao-medo">Não, tenho medo de represálias</option>
+                            <option value="nao-desconfianca">Não, confio pouco na empresa</option>
+                            <option value="nao-outro">Não, por outro motivo</option>
+                        </select>
+                    </div>
+
+                    <!-- Tipo de Empresa -->
+                    <div class="form-group">
+                        <label for="tipoEmpresa">Tipo de empresa:</label>
+                        <select id="tipoEmpresa" name="tipoEmpresa" required>
+                            <option value="">-- Selecione --</option>
+                            <option value="privada-pequena">Privada (Pequena - até 50 funcionários)</option>
+                            <option value="privada-media">Privada (Média - 51 a 500 funcionários)</option>
+                            <option value="privada-grande">Privada (Grande - mais de 500 funcionários)</option>
+                            <option value="publica">Pública</option>
+                            <option value="ong">ONG/Associação</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <!-- Setor da Economia -->
+                    <div class="form-group">
+                        <label for="setorEconomia">Setor da economia (sem identificar a empresa):</label>
+                        <select id="setorEconomia" name="setorEconomia" required>
+                            <option value="">-- Selecione --</option>
+                            <option value="tecnologia">Tecnologia</option>
+                            <option value="saude">Saúde</option>
+                            <option value="educacao">Educação</option>
+                            <option value="financeiro">Financeiro/Banco</option>
+                            <option value="varejo">Varejo/Comércio</option>
+                            <option value="industria">Indústria</option>
+                            <option value="telecom">Telecomunicações</option>
+                            <option value="logistica">Logística</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Consentimento e Segurança</legend>
+                    
+                    <!-- Consentimento -->
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="consentimento" name="consentimento" required>
+                            Confirmo que as informações fornecidas são verdadeiras e autorizo o armazenamento seguro dessa denúncia
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacidade" name="privacidade" required>
+                            Entendo que forneci essas informações anonimamente e concordo com a política de privacidade
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Enviar Denúncia Anonimamente</button>
+                    <button type="reset" class="btn btn-outline">Limpar Formulário</button>
+                </div>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <h3>✓ Denúncia Enviada com Sucesso!</h3>
+                    <p>Sua denúncia foi armazenada de forma segura e anônima.</p>
+                    <p>ID da Denúncia: <strong id="denunciaId"></strong> (guarde para referência futura)</p>
+                    <p>Você pode acompanhar estatísticas sobre as denúncias no site.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section">
+        <div class="container">
+            <h2>💡 Dicas para Uma Denúncia Eficaz</h2>
+            <div class="tips-grid">
+                <div class="tip">
+                    <h4>Seja Detalhado</h4>
+                    <p>Inclua datas, horários e contexto. Quanto mais informações, mais credível é a denúncia.</p>
+                </div>
+                <div class="tip">
+                    <h4>Não Revele Identidades</h4>
+                    <p>Não mencione nomes reais de colegas ou chefes. Use descrições genéricas.</p>
+                </div>
+                <div class="tip">
+                    <h4>Mantenha a Privacidade</h4>
+                    <p>Não faça a denúncia de computador da empresa. Use dispositivo pessoal.</p>
+                </div>
+                <div class="tip">
+                    <h4>Documente Evidências</h4>
+                    <p>Se possível, guarde e-mails, mensagens ou outros registros como backup pessoal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sobre</h4>
+                    <p>Plataforma de denúncias anônimas sobre abusos psicológicos no trabalho.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="informacoes.html">Informações</a></li>
+                        <li><a href="denuncias.html">Denúncias</a></li>
+                        <li><a href="recursos.html">Recursos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Confidencialidade</h4>
+                    <p>Todos os dados são armazenados de forma segura e anônima. Sua privacidade é nossa prioridade.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Segurança do Trabalho. Todos os direitos reservados. | Ambiente 100% Confidencial</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
