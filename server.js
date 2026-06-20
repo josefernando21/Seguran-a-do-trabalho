@@ -13,8 +13,20 @@ app.use(helmet());
 // Compressão de arquivos
 app.use(compression());
 
-// Servir arquivos estáticos
+// Servir arquivos estáticos (raiz do projeto)
+// Obs: mantém assets funcionando e evita conflito com rotas
 app.use(express.static(path.join(__dirname, '.')));
+
+// Garantia extra: sempre servir /assets no caminho correto
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
+
+
+// (assets já servidos acima)
+
+
+
+
 
 // Middleware para servir HTML sem extensão
 app.get('/', (req, res) => {
