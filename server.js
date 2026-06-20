@@ -20,12 +20,13 @@ app.use(express.static(path.join(__dirname, '.')));
 // Garantia extra: sempre servir /assets no caminho correto
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-
-
-// (assets já servidos acima)
-
-
-
+// Fallback para assets (evita problemas em alguns ambientes)
+app.get('/assets/:file', (req, res) => {
+    const filePath = path.join(__dirname, 'assets', req.params.file);
+    res.sendFile(filePath, (err) => {
+        if (err) res.status(404).send('Not Found');
+    });
+});
 
 
 // Middleware para servir HTML sem extensão
