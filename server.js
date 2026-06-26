@@ -13,20 +13,26 @@ app.use(helmet());
 // Compressão de arquivos
 app.use(compression());
 
-// Servir arquivos estáticos (raiz do projeto)
-// Obs: mantém assets funcionando e evita conflito com rotas
-app.use(express.static(path.join(__dirname, '.')));
+// =====================
+// Static files (assets)
+// =====================
+// No Render, é comum fazer deploy sem a pasta raiz completa.
+// Serve apenas o que interessa de forma inequívoca.
+const assetsDir = path.resolve(__dirname, 'assets');
+app.use('/assets', express.static(assetsDir, {
+    maxAge: '1d',
+    etag: true,
+    fallthrough: false
+}));
 
-// Garantia extra: sempre servir /assets no caminho correto
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
-
-// Fallback para assets (evita problemas em alguns ambientes)
+// Fallback explícito para facilitar debug
 app.get('/assets/:file', (req, res) => {
-    const filePath = path.join(__dirname, 'assets', req.params.file);
+    const filePath = path.join(assetsDir, req.params.file);
     res.sendFile(filePath, (err) => {
-        if (err) res.status(404).send('Not Found');
+        if (err) return res.status(404).type('text/plain').send('Not Found');
     });
 });
+
 
 
 // Middleware para servir HTML sem extensão
