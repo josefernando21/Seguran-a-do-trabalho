@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: seguranca-trabalho
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /
+    routes:
+      - path: /
+        destination: /
+      - path: /informacoes
+        destination: /informacoes
+      - path: /denuncias
+        destination: /denuncias
+      - path: /recursos
+        destination: /recursos
+
