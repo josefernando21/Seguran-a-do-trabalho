@@ -73,7 +73,10 @@ body {
 }
 
 .logo-icon {
-    font-size: 2rem;
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    border-radius: 6px;
 }
 
 .logo-text {
